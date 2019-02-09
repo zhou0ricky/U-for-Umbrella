@@ -50,13 +50,13 @@ public class MainActivity extends Activity {
     /**
      * Mobile Service Table used to access data
      */
-    private MobileServiceTable<Users> mToDoTable;
+    private MobileServiceTable<Users> musertable;
 
     //Offline Sync
     /**
      * Mobile Service Table used to access and Sync data
      */
-    //private MobileServiceSyncTable<Users> mToDoTable;
+    //private MobileServiceSyncTable<Users> musertable;
 
     /**
      * Adapter to sync the items list with the view
@@ -107,10 +107,10 @@ public class MainActivity extends Activity {
 
             // Get the Mobile Service Table instance to use
 
-            mToDoTable = mClient.getTable(Users.class);
+            musertable = mClient.getTable(Users.class);
 
             // Offline Sync
-            //mToDoTable = mClient.getSyncTable("Users", Users.class);
+            //musertable = mClient.getSyncTable("Users", Users.class);
 
             //Init local storage
             initLocalStore().get();
@@ -201,7 +201,7 @@ public class MainActivity extends Activity {
      *            The item to mark
      */
     public void checkItemInTable(Users item) throws ExecutionException, InterruptedException {
-        mToDoTable.update(item).get();
+        musertable.update(item).get();
     }
 
     /**
@@ -255,7 +255,7 @@ public class MainActivity extends Activity {
      *            The item to Add
      */
     public Users addItemInTable(Users item) throws ExecutionException, InterruptedException {
-        Users entity = mToDoTable.insert(item).get();
+        Users entity = musertable.insert(item).get();
         return entity;
     }
 
@@ -303,7 +303,7 @@ public class MainActivity extends Activity {
      */
 
     private List<Users> refreshItemsFromMobileServiceTable() throws ExecutionException, InterruptedException {
-        return mToDoTable.where().field("complete").
+        return musertable.where().field("complete").
                 eq(val(false)).execute().get();
     }
 
@@ -316,7 +316,7 @@ public class MainActivity extends Activity {
         sync().get();
         Query query = QueryOperations.field("complete").
                 eq(val(false));
-        return mToDoTable.read(query).get();
+        return musertable.read(query).get();
     }*/
 
     /**
@@ -375,7 +375,7 @@ public class MainActivity extends Activity {
                 try {
                     MobileServiceSyncContext syncContext = mClient.getSyncContext();
                     syncContext.push().get();
-                    mToDoTable.pull(null).get();
+                    musertable.pull(null).get();
                 } catch (final Exception e) {
                     createAndShowDialogFromTask(e, "Error");
                 }

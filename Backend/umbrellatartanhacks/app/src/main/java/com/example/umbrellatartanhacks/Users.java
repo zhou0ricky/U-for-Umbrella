@@ -8,7 +8,7 @@ public class Users {
     /**
      * User Name
      */
-    @com.google.gson.annotations.SerializedName("text")
+    @com.google.gson.annotations.SerializedName("name")
     private String mName;
 
     /**
@@ -26,25 +26,25 @@ public class Users {
     /**
      * Users credit card number
      */
-    @com.google.gson.annotations.SerializedName("cardnumber")
+    @com.google.gson.annotations.SerializedName("cardNumber")
     private String mCardNumber;
 
     /**
      * Users last used time
      */
-    @com.google.gson.annotations.SerializedName("lastused")
+    @com.google.gson.annotations.SerializedName("lastUsed")
     private String mLastUsed;
 
     /**
      * Users rent time
      */
-    @com.google.gson.annotations.SerializedName("renttime")
+    @com.google.gson.annotations.SerializedName("rentTime")
     private String mRentTime;
 
     /**
      * Users rent location
      */
-    @com.google.gson.annotations.SerializedName("rentloc")
+    @com.google.gson.annotations.SerializedName("rentLoc")
     private String mRentLoc;
 
     /**
