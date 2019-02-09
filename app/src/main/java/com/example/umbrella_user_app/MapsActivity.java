@@ -55,24 +55,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         List<Address> addressList = geocoder.getFromLocation(latitude, longitude, 1);
                         String str = addressList.get(0).getLocality() + ", ";
                         str += addressList.get(0).getCountryName();
-                        mMap.addMarker(new MarkerOptions().position(latLng).title(str));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10.2f));
+                        mMap.addMarker(new MarkerOptions().position(latLng).title(str).snippet("Your location"));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
 
                 @Override
-                public void onStatusChanged(String provider, int status, Bundle extras) {}
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+                }
 
                 @Override
-                public void onProviderEnabled(String provider) {}
+                public void onProviderEnabled(String provider) {
+                }
 
                 @Override
-                public void onProviderDisabled(String provider) {}
+                public void onProviderDisabled(String provider) {
+                }
             });
-        }
-        else if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+        } else if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new LocationListener() {
 
                 @Override
@@ -83,23 +84,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Geocoder geocoder = new Geocoder(getApplicationContext());
                     try {
                         List<Address> addressList = geocoder.getFromLocation(latitude, longitude, 1);
-                        String str = addressList.get(0).getLocality()+", ";
+                        String str = addressList.get(0).getLocality() + ", ";
                         str += addressList.get(0).getCountryName();
-                        mMap.addMarker(new MarkerOptions().position(latLng).title(str));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10.2f));
-                    } catch(IOException e) {
+                        mMap.addMarker(new MarkerOptions().position(latLng).title(str).snippet("Your location"));
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
 
                 @Override
-                public void onStatusChanged(String provider, int status, Bundle extras) {}
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+                }
 
                 @Override
-                public void onProviderEnabled(String provider) {}
+                public void onProviderEnabled(String provider) {
+                }
 
                 @Override
-                public void onProviderDisabled(String provider) {}
+                public void onProviderDisabled(String provider) {
+                }
             });
         }
     }
@@ -132,9 +135,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         // Add a marker in Sydney and move the camera
         LatLng pitt = new LatLng(40.4428, -79.943);
-        LatLng nearPitt = new LatLng(40, -80);
-        mMap.addMarker(new MarkerOptions().position(pitt).title("Marker in Pittsburgh"));
-        mMap.addMarker(new MarkerOptions().position(nearPitt).title("Marker near Pittsburgh"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(pitt));
+        mMap.addMarker(new MarkerOptions().position(pitt).title("Marker in Pittsburgh").snippet("Testing1"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pitt, 18));
     }
 }
