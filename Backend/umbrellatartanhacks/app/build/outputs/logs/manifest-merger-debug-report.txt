@@ -1,0 +1,110 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:1-26:12
+	package
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:2:5-46
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:4:5-30
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:1:11-69
+	android:versionCode
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:3:5-28
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:6:5-7:41
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:6:5-7:41
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:6:5-7:41
+MERGED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:7:5-9:41
+MERGED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:7:5-9:41
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:6:5-7:41
+INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:6:5-7:41
+	android:targetSdkVersion
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:7:9-38
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:6:5-7:41
+		INJECTED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:9:22-64
+application
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:11:5-24:19
+MERGED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:11:5-31:19
+MERGED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:11:5-31:19
+	android:label
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:14:9-41
+	android:icon
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:13:9-45
+	android:allowBackup
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:15:9-40
+activity#com.example.umbrellatartanhacks.MainActivity
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:17:9-23:20
+	android:label
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:18:13-45
+	android:name
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:17:19-46
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:19:13-22:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:20:17-69
+	android:name
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:20:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:21:17-77
+	android:name
+		ADDED from C:\Users\Jeff Kim\Documents\GitHub\U-for-Umbrella\Backend\umbrellatartanhacks\app\src\main\AndroidManifest.xml:21:27-74
+activity#com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:12:9-23:20
+	android:exported
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:14:13-36
+	android:name
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:13:13-104
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:15:13-22:29
+action#android.intent.action.VIEW
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:16:17-69
+	android:name
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:16:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:18:17-76
+	android:name
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:18:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:19:17-78
+	android:name
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:19:27-75
+data
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:21:17-43
+	android:scheme
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:21:23-40
+activity#com.microsoft.windowsazure.mobileservices.authentication.CustomTabsIntermediateActivity
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:24:9-26:40
+	android:exported
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:25:13-115
+activity#com.microsoft.windowsazure.mobileservices.authentication.CustomTabsLoginActivity
+ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:27:9-30:47
+	android:launchMode
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:30:13-44
+	android:exported
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:29:13-37
+	android:name
+		ADDED from [com.microsoft.azure:azure-mobile-android:3.2.0] C:\Users\Jeff Kim\.gradle\caches\transforms-1\files-1.1\azure-mobile-android-3.2.0.aar\824b2ffa7402cc49e7474abc1a85ef33\AndroidManifest.xml:28:13-108

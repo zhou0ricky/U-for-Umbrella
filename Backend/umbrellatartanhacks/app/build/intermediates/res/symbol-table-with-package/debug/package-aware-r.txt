@@ -1,0 +1,21 @@
+com.example.zumoappname
+drawable ic_launcher
+id LinearLayout1
+id buttonAddToDo
+id checkToDoItem
+id listViewToDo
+id loadingProgressBar
+id menu_refresh
+id textNewToDo
+id textViewTitle
+layout activity_to_do
+layout row_list_to_do
+menu activity_main
+string add_button_text
+string add_textbox_hint
+string app_name
+string checkbox_text
+string menu_refresh
+string service_title
+style AppBaseTheme
+style AppTheme
