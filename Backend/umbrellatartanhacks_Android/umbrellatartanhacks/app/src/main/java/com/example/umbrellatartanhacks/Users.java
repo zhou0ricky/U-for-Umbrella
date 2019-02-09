@@ -6,40 +6,46 @@ package com.example.umbrellatartanhacks;
 public class Users {
 
     /**
+     * User Name
+     */
+    @com.google.gson.annotations.SerializedName("text")
+    private String mName;
+
+    /**
      * User Id
      */
     @com.google.gson.annotations.SerializedName("id")
     private String mId;
 
     /**
+     * Indicates if the item is completed
+     */
+    @com.google.gson.annotations.SerializedName("complete")
+    private boolean mComplete;
+
+    /**
      * Users credit card number
      */
-    @com.google.gson.annotations.SerializedName("cardNumber")
+    @com.google.gson.annotations.SerializedName("cardnumber")
     private String mCardNumber;
 
     /**
      * Users last used time
      */
-    @com.google.gson.annotations.SerializedName("lastUsed")
+    @com.google.gson.annotations.SerializedName("lastused")
     private String mLastUsed;
 
     /**
      * Users rent time
      */
-    @com.google.gson.annotations.SerializedName("rentTime")
+    @com.google.gson.annotations.SerializedName("renttime")
     private String mRentTime;
 
     /**
      * Users rent location
      */
-    @com.google.gson.annotations.SerializedName("rentLoc")
+    @com.google.gson.annotations.SerializedName("rentloc")
     private String mRentLoc;
-
-    /**
-     * Users rent status
-     */
-    @com.google.gson.annotations.SerializedName("inUse")
-    private String mInUse;
 
     /**
      * Users constructor
@@ -48,10 +54,10 @@ public class Users {
 
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return getId() + ": " + getName();
-    }*/
+    }
 
     /**
      * Initializes a new ToDoItem
@@ -61,12 +67,10 @@ public class Users {
      * @param id
      *            The item id
      */
-    /*
     public Users(String text, String id) {
         this.setName(text);
         this.setId(id);
     }
-    */
 
 
     /**
@@ -89,16 +93,20 @@ public class Users {
     /**
      * Indicates if the item is marked as completed
      */
-    public String getUse() {
-        return mInUse;
+    public boolean isComplete() {
+        return mComplete;
     }
 
     /**
      * Marks the item as completed or incompleted
      */
-    public void setUse(String Use) {
-        mInUse = Use;
+    public void setComplete(boolean complete) {
+        mComplete = complete;
     }
+
+    public String getName() {return mName;}
+
+    public void setName(String name) {mName = name;}
 
     public String getCard() {return mCardNumber;}
 
@@ -106,7 +114,7 @@ public class Users {
 
     public String getLastUsed() {return mLastUsed;}
 
-    public void setLastUsed(String lastUsed) {mLastUsed = lastUsed;}
+    public void setmLastUsed(String lastUsed) {mLastUsed = lastUsed;}
 
     public String getRentTime() {return mRentTime;}
 

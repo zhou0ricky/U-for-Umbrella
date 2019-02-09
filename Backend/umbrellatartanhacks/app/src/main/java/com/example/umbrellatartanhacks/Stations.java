@@ -11,11 +11,6 @@ public class Stations {
     @com.google.gson.annotations.SerializedName("id")
     private String mId;
 
-    /**
-     * Indicates if the item is completed
-     */
-    @com.google.gson.annotations.SerializedName("complete")
-    private boolean mComplete;
 
 
     /**
@@ -81,20 +76,6 @@ public class Stations {
      */
     public final void setId(String id) {
         mId = id;
-    }
-
-    /**
-     * Indicates if the item is marked as completed
-     */
-    public boolean isComplete() {
-        return mComplete;
-    }
-
-    /**
-     * Marks the item as completed or incompleted
-     */
-    public void setComplete(boolean complete) {
-        mComplete = complete;
     }
 
     public String getNumLarge() {return mnumL;}
