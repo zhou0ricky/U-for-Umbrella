@@ -3,16 +3,10 @@ package com.example.umbrellatartanhacks;
 /**
  * Represents an item in a ToDo list
  */
-public class Users {
+public class Devices {
 
     /**
-     * User Name
-     */
-    @com.google.gson.annotations.SerializedName("name")
-    private String mName;
-
-    /**
-     * User Id
+     * Device Id
      */
     @com.google.gson.annotations.SerializedName("id")
     private String mId;
@@ -24,19 +18,13 @@ public class Users {
     private boolean mComplete;
 
     /**
-     * Users credit card number
-     */
-    @com.google.gson.annotations.SerializedName("cardNumber")
-    private String mCardNumber;
-
-    /**
      * Users last used time
      */
     @com.google.gson.annotations.SerializedName("lastUsed")
     private String mLastUsed;
 
     /**
-     * Users rent time
+     * Device rent time
      */
     @com.google.gson.annotations.SerializedName("rentTime")
     private String mRentTime;
@@ -48,27 +36,25 @@ public class Users {
     private String mRentLoc;
 
     /**
-     * Users constructor
+     * Size rent location
      */
-    public Users() {
+    @com.google.gson.annotations.SerializedName("size")
+    private String mSize;
+
+    /**
+     * Devices constructor
+     */
+    public Devices() {
 
     }
 
     @Override
     public String toString() {
-        return getId() + ": " + getName();
+        return getId();
     }
 
-    /**
-     * Initializes a new ToDoItem
-     *
-     * @param text
-     *            The item text
-     * @param id
-     *            The item id
-     */
-    public Users(String text, String id) {
-        this.setName(text);
+    public Devices(String size, String id) {
+        this.setSize(size);
         this.setId(id);
     }
 
@@ -104,13 +90,9 @@ public class Users {
         mComplete = complete;
     }
 
-    public String getName() {return mName;}
+    public String getSize() {return mSize;}
 
-    public void setName(String name) {mName = name;}
-
-    public String getCard() {return mCardNumber;}
-
-    public void setCard(String cardNumber) {mCardNumber = cardNumber;}
+    public void setSize(String size) {mSize = size;}
 
     public String getLastUsed() {return mLastUsed;}
 
@@ -126,6 +108,6 @@ public class Users {
 
     @Override
     public boolean equals(Object o) {
-        return o instanceof Users && ((Users) o).mId == mId;
+        return o instanceof Devices && ((Devices) o).mId == mId;
     }
 }

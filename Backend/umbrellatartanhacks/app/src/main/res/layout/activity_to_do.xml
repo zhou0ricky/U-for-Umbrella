@@ -44,12 +44,12 @@
             <requestFocus />
        </EditText>
 
-        <Button
-            android:id="@+id/buttonAddToDo"
-            android:layout_width="64dip"
-            android:layout_height="wrap_content"
-            android:onClick="addItem"
-            android:text="@string/add_button_text" />
+         <Button
+             android:id="@+id/buttonAddToDo"
+             android:layout_width="64dip"
+             android:layout_height="wrap_content"
+             android:onClick="addUser"
+             android:text="@string/add_button_text" />
 
     </LinearLayout>
 

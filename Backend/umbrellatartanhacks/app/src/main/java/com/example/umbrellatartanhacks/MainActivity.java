@@ -3,6 +3,7 @@ package com.example.umbrellatartanhacks;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.bluetooth.BluetoothClass;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,18 +52,14 @@ public class MainActivity extends Activity {
      * Mobile Service Table used to access data
      */
     private MobileServiceTable<Users> musertable;
-
-    //Offline Sync
-    /**
-     * Mobile Service Table used to access and Sync data
-     */
-    //private MobileServiceSyncTable<Users> musertable;
-
+    private MobileServiceTable<Devices> mdevicetable;
+    private MobileServiceTable<Stations> mstationtable;
     /**
      * Adapter to sync the items list with the view
      */
-    private UsersAdapter mAdapter;
-
+    private UsersAdapter userAdapter;
+    private DevicesAdapter deviceAdapter;
+    private StationsAdapter stationAdapter;
     /**
      * EditText containing the "New To Do" text
      */
@@ -108,7 +105,8 @@ public class MainActivity extends Activity {
             // Get the Mobile Service Table instance to use
 
             musertable = mClient.getTable(Users.class);
-
+            mdevicetable = mClient.getTable(Devices.class);
+            mstationtable = mClient.getTable(Stations.class);
             // Offline Sync
             //musertable = mClient.getSyncTable("Users", Users.class);
 
@@ -118,12 +116,15 @@ public class MainActivity extends Activity {
             mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            mAdapter = new UsersAdapter(this, R.layout.row_list_to_do);
+            userAdapter = new UsersAdapter(this, R.layout.row_list_to_do);
+            deviceAdapter = new DevicesAdapter(this,R.layout.row_list_to_do);
+            stationAdapter = new StationsAdapter(this,R.layout.row_list_to_do);
             ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-            listViewToDo.setAdapter(mAdapter);
+            listViewToDo.setAdapter(userAdapter);
 
             // Load the items from the Mobile Service
-            refreshItemsFromTable();
+            refreshUsersFromTable();
+            refreshDevicesFromTable();
 
         } catch (MalformedURLException e) {
             createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
@@ -147,7 +148,9 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_refresh) {
-            refreshItemsFromTable();
+            refreshUsersFromTable();
+            refreshDevicesFromTable();
+            refreshStationsFromTable();
         }
 
         return true;
@@ -177,12 +180,11 @@ public class MainActivity extends Activity {
                         @Override
                         public void run() {
                             if (item.isComplete()) {
-                                mAdapter.remove(item);
+                                userAdapter.remove(item);
                             }
                         }
                     });
                 } catch (final Exception e) {
-                    System.out.println("asjdflka;sdlfj;ajlsfj;");
                     createAndShowDialogFromTask(e, "Error");
                 }
 
@@ -194,6 +196,73 @@ public class MainActivity extends Activity {
 
     }
 
+    public void checkItem(final Devices item) {
+        if (mClient == null) {
+            return;
+        }
+
+        // Set the item as completed and update it in the table
+        item.setComplete(true);
+
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+
+                    checkItemInTable(item);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (item.isComplete()) {
+                                deviceAdapter.remove(item);
+                            }
+                        }
+                    });
+                } catch (final Exception e) {
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+
+    }
+
+    public void checkItem(final Stations item) {
+        if (mClient == null) {
+            return;
+        }
+
+        // Set the item as completed and update it in the table
+        item.setComplete(true);
+
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+
+                    checkItemInTable(item);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (item.isComplete()) {
+                                stationAdapter.remove(item);
+                            }
+                        }
+                    });
+                } catch (final Exception e) {
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+
+    }
     /**
      * Mark an item as completed in the Mobile Service Table
      *
@@ -204,13 +273,21 @@ public class MainActivity extends Activity {
         musertable.update(item).get();
     }
 
+    public void checkItemInTable(Devices item) throws ExecutionException, InterruptedException {
+        mdevicetable.update(item).get();
+    }
+
+    public void checkItemInTable(Stations item) throws ExecutionException, InterruptedException {
+        mstationtable.update(item).get();
+    }
+
     /**
      * Add a new item
      *
      * @param view
      *            The view that originated the call
      */
-    public void addItem(View view) {
+    public void addUser(View view) {
         if (mClient == null) {
             return;
         }
@@ -227,12 +304,12 @@ public class MainActivity extends Activity {
             protected Void doInBackground(Void... params) {
                 try {
                     System.out.println("a");
-                    final Users entity = addItemInTable(item);
+                    final Users entity = addUserInTable(item);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if(!entity.isComplete()){
-                                mAdapter.add(entity);
+                                userAdapter.add(entity);
                             }
                         }
                     });
@@ -248,21 +325,106 @@ public class MainActivity extends Activity {
         mTextNewToDo.setText("");
     }
 
+    public void addDevice(View view) {
+        if (mClient == null) {
+            return;
+        }
+
+        // Create a new item
+        final Devices item = new Devices();
+
+        item.setId(mTextNewToDo.getText().toString());
+        item.setComplete(false);
+
+        // Insert the new item
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    System.out.println("a");
+                    final Devices entity = addDeviceInTable(item);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(!entity.isComplete()){
+                                deviceAdapter.add(entity);
+                            }
+                        }
+                    });
+                } catch (final Exception e) {
+                    createAndShowDialogFromTask(e, "Error");
+                }
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+
+        mTextNewToDo.setText("");
+    }
+
+    public void addStation(View view) {
+        if (mClient == null) {
+            return;
+        }
+
+        // Create a new item
+        final Stations item = new Stations();
+
+        item.setId(mTextNewToDo.getText().toString());
+        item.setComplete(false);
+
+        // Insert the new item
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    System.out.println("a");
+                    final Stations entity = addStationInTable(item);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(!entity.isComplete()){
+                                stationAdapter.add(entity);
+                            }
+                        }
+                    });
+                } catch (final Exception e) {
+                    createAndShowDialogFromTask(e, "Error");
+                }
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+
+        mTextNewToDo.setText("");
+    }
     /**
      * Add an item to the Mobile Service Table
      *
      * @param item
      *            The item to Add
      */
-    public Users addItemInTable(Users item) throws ExecutionException, InterruptedException {
+    public Users addUserInTable(Users item) throws ExecutionException, InterruptedException {
         Users entity = musertable.insert(item).get();
+        return entity;
+    }
+
+    public Devices addDeviceInTable(Devices item) throws ExecutionException, InterruptedException {
+        Devices entity = mdevicetable.insert(item).get();
+        return entity;
+    }
+
+    public Stations addStationInTable(Stations item) throws ExecutionException, InterruptedException {
+        Stations entity = mstationtable.insert(item).get();
         return entity;
     }
 
     /**
      * Refresh the list with the items in the Table
      */
-    private void refreshItemsFromTable() {
+    private void refreshUsersFromTable() {
 
         // Get the items that weren't marked as completed and add them in the
         // adapter
@@ -272,7 +434,7 @@ public class MainActivity extends Activity {
             protected Void doInBackground(Void... params) {
 
                 try {
-                    final List<Users> results = refreshItemsFromMobileServiceTable();
+                    final List<Users> results = refreshUsersFromMobileServiceTable();
 
                     //Offline Sync
                     //final List<Users> results = refreshItemsFromMobileServiceTableSyncTable();
@@ -280,10 +442,10 @@ public class MainActivity extends Activity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mAdapter.clear();
+                            userAdapter.clear();
 
                             for (Users item : results) {
-                                mAdapter.add(item);
+                                userAdapter.add(item);
                             }
                         }
                     });
@@ -298,12 +460,93 @@ public class MainActivity extends Activity {
         runAsyncTask(task);
     }
 
+    private void refreshDevicesFromTable() {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    final List<Devices> results = refreshDevicesFromMobileServiceTable();
+
+                    //Offline Sync
+                    //final List<Users> results = refreshItemsFromMobileServiceTableSyncTable();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            deviceAdapter.clear();
+
+                            for (Devices item : results) {
+                                deviceAdapter.add(item);
+                            }
+                        }
+                    });
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+    }
+
+    private void refreshStationsFromTable() {
+
+        // Get the items that weren't marked as completed and add them in the
+        // adapter
+
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                try {
+                    final List<Stations> results = refreshStationsFromMobileServiceTable();
+
+                    //Offline Sync
+                    //final List<Users> results = refreshItemsFromMobileServiceTableSyncTable();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            stationAdapter.clear();
+
+                            for (Stations item : results) {
+                                stationAdapter.add(item);
+                            }
+                        }
+                    });
+                } catch (final Exception e){
+                    createAndShowDialogFromTask(e, "Error");
+                }
+
+                return null;
+            }
+        };
+
+        runAsyncTask(task);
+    }
     /**
      * Refresh the list with the items in the Mobile Service Table
      */
 
-    private List<Users> refreshItemsFromMobileServiceTable() throws ExecutionException, InterruptedException {
+    private List<Users> refreshUsersFromMobileServiceTable() throws ExecutionException, InterruptedException {
         return musertable.where().field("complete").
+                eq(val(false)).execute().get();
+    }
+
+    private List<Devices> refreshDevicesFromMobileServiceTable() throws ExecutionException, InterruptedException {
+        return mdevicetable.where().field("complete").
+                eq(val(false)).execute().get();
+    }
+
+    private List<Stations> refreshStationsFromMobileServiceTable() throws ExecutionException, InterruptedException {
+        return mstationtable.where().field("complete").
                 eq(val(false)).execute().get();
     }
 
@@ -340,12 +583,22 @@ public class MainActivity extends Activity {
 
                     SQLiteLocalStore localStore = new SQLiteLocalStore(mClient.getContext(), "OfflineStore", null, 1);
 
-                    Map<String, ColumnDataType> tableDefinition = new HashMap<String, ColumnDataType>();
-                    tableDefinition.put("id", ColumnDataType.String);
-                    tableDefinition.put("text", ColumnDataType.String);
-                    tableDefinition.put("complete", ColumnDataType.Boolean);
+                    Map<String, ColumnDataType> utableDefinition = new HashMap<String, ColumnDataType>();
+                    utableDefinition.put("id", ColumnDataType.String);
+                    utableDefinition.put("text", ColumnDataType.String);
+                    utableDefinition.put("complete", ColumnDataType.Boolean);
 
-                    localStore.defineTable("Users", tableDefinition);
+                    Map<String, ColumnDataType> dtableDefinition = new HashMap<String, ColumnDataType>();
+                    dtableDefinition.put("id", ColumnDataType.String);
+                    dtableDefinition.put("size", ColumnDataType.String);
+                    dtableDefinition.put("complete", ColumnDataType.Boolean);
+                    localStore.defineTable("Devices", dtableDefinition);
+
+                    Map<String, ColumnDataType> stableDefinition = new HashMap<String, ColumnDataType>();
+                    dtableDefinition.put("id", ColumnDataType.String);
+                    dtableDefinition.put("loc", ColumnDataType.String);
+                    dtableDefinition.put("complete", ColumnDataType.Boolean);
+                    localStore.defineTable("Stations", dtableDefinition);
 
                     SimpleSyncHandler handler = new SimpleSyncHandler();
 
