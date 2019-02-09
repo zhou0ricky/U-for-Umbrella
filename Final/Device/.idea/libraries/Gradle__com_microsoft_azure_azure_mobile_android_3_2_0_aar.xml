@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.microsoft.azure:azure-mobile-android:3.2.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/azure-mobile-android-3.2.0.aar/824b2ffa7402cc49e7474abc1a85ef33/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/azure-mobile-android-3.2.0.aar/824b2ffa7402cc49e7474abc1a85ef33/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.microsoft.azure/azure-mobile-android/3.2.0/c32a536387627e226a1964882a95e1351af70924/azure-mobile-android-3.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

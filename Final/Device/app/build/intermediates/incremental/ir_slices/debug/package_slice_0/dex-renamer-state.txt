@@ -1,0 +1,4 @@
+#Sat Feb 09 11:25:03 GMT-05:00 2019
+base.0=C\:\\Users\\Jeff Kim\\Documents\\GitHub\\U-for-Umbrella\\Final\\Device\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

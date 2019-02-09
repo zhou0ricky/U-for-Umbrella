@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sat Feb 09 10:12:13 GMT-05:00 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\Jeff Kim\\Documents\\GitHub\\U-for-Umbrella\\Final\\Device\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+0.path=classes.dex
+0.set=DEX
+count=1
